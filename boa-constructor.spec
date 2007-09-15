@@ -47,11 +47,6 @@ perl -pi -e 's%\r\n$%\n%' $(find . -name '*.txt')
 cat << EOF > README.Mandriva
 This RPM incorporate a patch made by Cedric Delfosse, of Debian, to use the 
 ~/.boa-constructor directory to store the cache of help file.
-
-You can found it on Mandriva CVS, at 
-http://cvs.mandrakesoft.com/cgi-bin/cvsweb.cgi/contrib-SPECS/boa-constructor/
-boa-constructor.help.patch
-
 EOF
 
 %build
