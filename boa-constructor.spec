@@ -1,5 +1,5 @@
 %define name boa-constructor
-%define version 0.4.4
+%define version 0.6.1
 
 Name: %{name}
 Summary: Python IDE and wxPython GUI Builder
@@ -35,7 +35,7 @@ import and export. Property creation and editing in the Inspector
 and Python Script debugging.
 
 %prep
-%setup -q 
+%setup -q
 
 # (misc) dos2unix on all sources, and config since it is a software developed on windows
 perl -pi -e 's%\r\n$%\n%' $(find . -name '*.py')
@@ -45,7 +45,7 @@ perl -pi -e 's%\r\n$%\n%' $(find . -name '*.txt')
 %patch -p0
 
 cat << EOF > README.Mandriva
-This RPM incorporate a patch made by Cedric Delfosse, of Debian, to use the 
+This RPM incorporate a patch made by Cedric Delfosse, of Debian, to use the
 ~/.boa-constructor directory to store the cache of help file.
 EOF
 
@@ -61,7 +61,7 @@ mkdir -p $RPM_BUILD_ROOT/%{_menudir}/
 cat << EOF > $RPM_BUILD_ROOT/%{_menudir}/%{name}
 ?package(%{name}): command="boa-constructor" \
 needs="X11" section="Applications/Development/Development Environments" title="Boa-constructor" icon="%{name}.png" \
-longtitle="Python IDE" 
+longtitle="Python IDE"
 EOF
 
 install -d $RPM_BUILD_ROOT/%{_datadir}/%{name}/
@@ -80,7 +80,7 @@ bunzip2 -c %{SOURCE4} >  $RPM_BUILD_ROOT/%{_mandir}/man1/%{name}.1
 
 
 # (misc) remove documentation
-find $RPM_BUILD_ROOT/%{_datadir}/%{name}/ -maxdepth 1 -name '*.txt' | xargs rm -Rf 
+find $RPM_BUILD_ROOT/%{_datadir}/%{name}/ -maxdepth 1 -name '*.txt' | xargs rm -Rf
 rm -Rf $RPM_BUILD_ROOT/%{_datadir}/%{name}/README.Mandriva
 %clean
 rm -rf $RPM_BUILD_ROOT
