@@ -21,6 +21,8 @@ Url: http://boa-constructor.sourceforge.net/
 BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires: perl
 Requires: wxPythonGTK pychecker python
+Requires(post): desktop-file-utils
+Requires(postun): desktop-file-utils
 License: GPL
 BuildArch: noarch
 
