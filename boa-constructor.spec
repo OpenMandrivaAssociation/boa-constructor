@@ -14,6 +14,7 @@ Source2: %{name}.32.png.bz2
 Source3: %{name}.48.png.bz2
 # man pages
 Source4: %{name}.1.bz2
+Source5: %{name}.desktop
 # to remove a annoying message when looking at help.
 Patch: %{name}.help.patch
 Url: http://boa-constructor.sourceforge.net/
@@ -57,12 +58,26 @@ mkdir -p $RPM_BUILD_ROOT/%{_bindir}
 echo -e "#!/bin/sh\npython %{_datadir}/%{name}/Boa.py" >  $RPM_BUILD_ROOT/%{_bindir}/%{name}
 chmod +x $RPM_BUILD_ROOT/%{_bindir}/%{name}
 
+mkdir -p $RPM_BUILD_ROOT/%{_datadir}/applications
+cp %{SOURCE5} $RPM_BUILD_ROOT/%{_datadir}/applications/
+
 mkdir -p $RPM_BUILD_ROOT/%{_menudir}/
 cat << EOF > $RPM_BUILD_ROOT/%{_menudir}/%{name}
 ?package(%{name}): command="boa-constructor" \
 needs="X11" section="Applications/Development/Development Environments" title="Boa-constructor" icon="%{name}.png" \
-longtitle="Python IDE"
+longtitle="Python IDE" \
+xdg="true"
 EOF
+
+desktop-file-install --vendor="" \
+        --remove-category="Development" \
+        --remove-category="Debugger" \
+        --remove-category="GUIDesigner" \
+        --add-category="GNOME" \
+        --add-category="GTK" \
+        --add-category="Development" \
+        --add-category="X-MandrivaLinux-MoreApplications-Development-DevelopmentEnvironments" \
+        --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
 
 install -d $RPM_BUILD_ROOT/%{_datadir}/%{name}/
 cp -Rf * $RPM_BUILD_ROOT/%{_datadir}/%{name}/
@@ -97,6 +112,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/%{name}
 %{_datadir}/%{name}/*
 %dir %{_datadir}/%{name}/
+%{_datadir}/applications/%{name}.desktop
 %{_mandir}/*/*
 %{_menudir}/%{name}
 
