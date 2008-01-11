@@ -63,13 +63,6 @@ chmod +x $RPM_BUILD_ROOT/%{_bindir}/%{name}
 mkdir -p $RPM_BUILD_ROOT/%{_datadir}/applications
 cp %{SOURCE5} $RPM_BUILD_ROOT/%{_datadir}/applications/
 
-mkdir -p $RPM_BUILD_ROOT/%{_menudir}/
-cat << EOF > $RPM_BUILD_ROOT/%{_menudir}/%{name}
-?package(%{name}): command="boa-constructor" \
-needs="X11" section="Applications/Development/Development Environments" title="Boa-constructor" icon="%{name}.png" \
-longtitle="Python IDE" \
-xdg="true"
-EOF
 
 desktop-file-install --vendor="" \
         --remove-category="Development" \
@@ -116,7 +109,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/%{name}/
 %{_datadir}/applications/%{name}.desktop
 %{_mandir}/*/*
-%{_menudir}/%{name}
 
 %{_miconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png
