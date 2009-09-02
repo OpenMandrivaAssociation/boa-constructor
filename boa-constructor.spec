@@ -4,7 +4,7 @@
 Name: %{name}
 Summary: Python IDE and wxPython GUI Builder
 Version: %{version}
-Release: %mkrel 3
+Release: %mkrel 4
 Group: Development/Python
 # the source come from a .zip
 Source: %{name}-%{version}.tar.bz2
