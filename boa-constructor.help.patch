@@ -1,0 +1,14 @@
+Index: Help.py
+===================================================================
+--- Help.py
++++ Help.py	2005-08-11 21:25:01.000000000 +0200
+@@ -496,7 +496,8 @@
+ def getCacheDir():
+     cacheDir = os.path.join(Preferences.rcPath, 'docs-cache')
+     if not os.path.isdir(cacheDir):
+-        cacheDir = os.path.join(Preferences.pyPath, 'Docs', 'cache')
++        try: os.mkdir(cacheDir)
++        except: cacheDir = os.path.join(Preferences.pyPath, 'Docs', 'cache')
+     return cacheDir
+ 
+ # needed for .htb files
