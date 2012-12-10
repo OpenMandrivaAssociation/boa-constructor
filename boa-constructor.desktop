@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Boa Constructor
+Comment=RAD Tool for Python and WxWindows
+Exec=boa-constructor
+Icon=boa-constructor
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Categories=Development;Debugger;GUIDesigner;
+StartupNotify=true

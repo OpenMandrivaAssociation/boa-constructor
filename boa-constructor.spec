@@ -118,3 +118,60 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
 
+
+
+%changelog
+* Thu Dec 09 2010 Oden Eriksson <oeriksson@mandriva.com> 0.6.1-5mdv2011.0
++ Revision: 616802
+- the mass rebuild of 2010.0 packages
+
+* Wed Sep 02 2009 Thierry Vignaud <tv@mandriva.org> 0.6.1-4mdv2010.0
++ Revision: 424664
+- rebuild
+
+* Wed Jul 23 2008 Thierry Vignaud <tv@mandriva.org> 0.6.1-3mdv2009.0
++ Revision: 243356
+- rebuild
+- drop old menu
+- kill re-definition of %%buildroot on Pixel's request
+
+  + Pixel <pixel@mandriva.com>
+    - rpm filetriggers deprecates update_menus/update_scrollkeeper/update_mime_database/update_icon_cache/update_desktop_database/post_install_gconf_schemas
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+* Sun Oct 21 2007 Jérôme Soyer <saispo@mandriva.org> 0.6.1-1mdv2008.1
++ Revision: 100995
+- fix
+- Add BR
+- Fix Menu
+- Fix Menu
+- Add files
+- New release 0.6.1
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill CVS reference in README.urpmi !!
+
+
+* Thu Aug 11 2005 Michael Scherer <misc@mandriva.org> 0.4.4-1mdk
+- New release 0.4.4
+- mkrel
+- remove patch1, integrated upstream
+- fix #10676 and his clones
+- adapt patch0
+- fix menu
+
+* Thu Jun 17 2004 Michael Scherer <misc@mandrake.org> 0.2.3-3mdk 
+- rebuild with proper Vendor and other tags
+
+* Wed Aug 20 2003 Michael Scherer <scherer.michael@free.fr> 0.2.3-2mdk 
+- the preference directory have changed in the CVS version, patch to use the new settings
+    ( thanks Cedric Delfosse )
+
+* Wed Aug 20 2003 Michael Scherer <scherer.michael@free.fr> 0.2.3-1mdk
+- first spec for Mandrake
+- man pages from Debian ( thanks Cedric Delfosse )
+- pngification of Debian icon
+- use a patch from Debian to use homedir for help cache
+
