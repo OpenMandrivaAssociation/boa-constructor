@@ -17,7 +17,7 @@ Source4: %{name}.1.bz2
 Source5: %{name}.desktop
 # to remove a annoying message when looking at help.
 Patch: %{name}.help.patch
-Url: http://boa-constructor.sourceforge.net/
+Url: https://boa-constructor.sourceforge.net/
 BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires: perl desktop-file-utils
 Requires: wxPythonGTK pychecker python
